@@ -1,6 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Navbar({ menuOpen, setMenuOpen }) {
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen); // Actualizar el estado solo cuando el usuario haga clic
+      };
+    
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : ""
     }, [menuOpen]); //se ejecuta cuando cambia el valor de menuOpen
@@ -13,15 +17,15 @@ function Navbar({ menuOpen, setMenuOpen }) {
                     mauricio<span className="text-blue-500">.tech</span>
                 </a>
 
-                <div className="w-7 h-5 relative cursor-pointer z-40 md:hidden" onClick={setMenuOpen((prev) => !prev)}>
+                <div className="w-7 h-5 relative cursor-pointer z-40 md:hidden" onClick={toggleMenu}>
                     &#9776;
                 </div>
 
                 <div className="hidden md:flex items-center space-x-8">
-                    <a className="text-gray-300 hover:text-white transition-colors" href="home"> Home </a>
-                    <a className="text-gray-300 hover:text-white transition-colors" href="home"> About </a>
-                    <a className="text-gray-300 hover:text-white transition-colors" href="home"> Projects </a>
-                    <a className="text-gray-300 hover:text-white transition-colors" href="home"> Contact </a>
+                    <a className="text-gray-300 hover:text-white transition-colors" href="#home"> Home </a>
+                    <a className="text-gray-300 hover:text-white transition-colors" href="#about"> About </a>
+                    <a className="text-gray-300 hover:text-white transition-colors" href="#projects"> Projects </a>
+                    <a className="text-gray-300 hover:text-white transition-colors" href="#contact"> Contact </a>
                 </div>
             </div>
         </div>
